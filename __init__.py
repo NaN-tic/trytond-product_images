@@ -8,5 +8,5 @@ from .product import *
 def register():
     Pool.register(
         Attachment,
-        Product,
+        Template,
         module='product_images', type_='model')

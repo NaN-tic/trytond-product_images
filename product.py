@@ -4,7 +4,7 @@ from trytond.model import fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 
-__all__ = ['Attachment', 'Product']
+__all__ = ['Attachment', 'Template']
 __metaclass__ = PoolMeta
 
 
@@ -14,8 +14,8 @@ class Attachment:
     product_image = fields.Boolean('Product Image')
 
 
-class Product:
-    __name__ = 'product.product'
+class Template:
+    __name__ = 'product.template'
 
     images = fields.One2Many('ir.attachment', 'resource', 'Images', domain=[
             ('product_image', '=', True),
@@ -25,10 +25,10 @@ class Product:
             }, depends=['id'])
 
     @classmethod
-    def delete(cls, products):
+    def delete(cls, templates):
         pool = Pool()
         Attachment = pool.get('ir.attachment')
 
-        attachments = [a for p in products for a in p.images]
+        attachments = [a for t in templates for a in t.images]
         Attachment.delete(attachments)
-        super(Product, cls).delete(products)
+        super(Template, cls).delete(templates)
