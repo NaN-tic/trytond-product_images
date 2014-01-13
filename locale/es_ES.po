@@ -1,0 +1,15 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:ir.attachment,product_image:"
+msgid "Product Image"
+msgstr "Imatge de producte"
+
+msgctxt "field:product.template,images:"
+msgid "Images"
+msgstr "Imatges"
+
+msgctxt "view:product.template:"
+msgid "Images"
+msgstr "Imatges"
