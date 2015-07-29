@@ -16,13 +16,17 @@ class Attachment:
 
 class Template:
     __name__ = 'product.template'
-
+    images_resource = fields.Function(fields.Char('Images Resource'),
+        'get_images_resource')
     images = fields.One2Many('ir.attachment', 'resource', 'Images', domain=[
             ('product_image', '=', True),
             ],
         context={
-            'resource': Eval('id'),
-            }, depends=['id'])
+            'resource': Eval('images_resource'),
+            }, depends=['images_resource'])
+
+    def get_images_resource(self, name):
+        return 'product.template,%s' % self.id
 
     @classmethod
     def delete(cls, templates):
