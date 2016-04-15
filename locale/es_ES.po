@@ -4,12 +4,12 @@ msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:ir.attachment,product_image:"
 msgid "Product Image"
-msgstr "Imatge de producte"
+msgstr "Imagen de producto"
 
 msgctxt "field:product.template,images:"
 msgid "Images"
-msgstr "Imatges"
+msgstr "Imágenes"
 
 msgctxt "view:product.template:"
 msgid "Images"
-msgstr "Imatges"
+msgstr "Imágenes"
