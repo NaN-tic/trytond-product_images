@@ -9,8 +9,8 @@ import io
 __all__ = ['Attachment', 'Template']
 THUMB_QUALITY = config_.getint('product', 'thumb_quality', default=85)
 THUMB_CROP = config_.get('product', 'thumb_crop', default='')
-THUMB_WIDTH = config_.getint('product', 'thumb_width', default=300)
-THUMB_HEIGHT = config_.getint('product', 'thumb_height', default=300)
+THUMB_WIDTH = config_.getint('product', 'thumb_width', default=600)
+THUMB_HEIGHT = config_.getint('product', 'thumb_height', default=600)
 
 class Attachment:
     __metaclass__ = PoolMeta
@@ -78,7 +78,7 @@ class Template:
                 else :
                     box = ((img.size[0] - size[0]) / 2, 0,
                         (img.size[0] + size[0]) / 2, img.size[1])
-                img = img.crop(box)
+                img.crop(box)
         else:
             img.thumbnail(size)
 
