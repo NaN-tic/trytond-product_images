@@ -12,14 +12,12 @@ THUMB_CROP = config_.get('product', 'thumb_crop', default='')
 THUMB_WIDTH = config_.getint('product', 'thumb_width', default=600)
 THUMB_HEIGHT = config_.getint('product', 'thumb_height', default=600)
 
-class Attachment:
-    __metaclass__ = PoolMeta
+class Attachment(metaclass=PoolMeta):
     __name__ = 'ir.attachment'
     product_image = fields.Boolean('Product Image')
 
 
-class Template:
-    __metaclass__ = PoolMeta
+class Template(metaclass=PoolMeta):
     __name__ = 'product.template'
     images = fields.One2Many('ir.attachment', 'resource', 'Images',
         filter=[
