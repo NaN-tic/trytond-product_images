@@ -18,9 +18,7 @@ class Template:
     __name__ = 'product.template'
     images_resource = fields.Function(fields.Char('Images Resource'),
         'get_images_resource')
-    images = fields.One2Many('ir.attachment', 'resource', 'Images', domain=[
-            ('product_image', '=', True),
-            ],
+    images = fields.One2Many('ir.attachment', 'resource', 'Images',
         context={
             'resource': Eval('images_resource'),
             }, depends=['images_resource'])
