@@ -40,7 +40,7 @@ class Template(metaclass=PoolMeta):
         return res
 
     @staticmethod
-    def thumb(data, image_format, crop=THUMB_CROP,
+    def create_thumb(data, image_format, crop=THUMB_CROP,
             width=THUMB_WIDTH, height=THUMB_HEIGHT, quality=THUMB_QUALITY):
         size = (width, height)
         try:
@@ -93,7 +93,7 @@ class Template(metaclass=PoolMeta):
                     image_format, = record.image.name.split('.')[-1:]
                     imgformat = (image_format.lower() if image_format.lower()
                         in {'png', 'jpeg'} else 'jpeg')
-                    res[name][record.id] = cls.thumb(record.image.data, imgformat)
+                    res[name][record.id] = cls.create_thumb(record.image.data, imgformat)
         return res
 
     def get_image_thumb_filename(self, name):
