@@ -2,7 +2,7 @@
 # copyright notices and license terms.
 from trytond.model import fields
 from trytond.pool import Pool, PoolMeta
-from trytond.config import config as config_
+import trytond.config as config_
 from PIL import Image
 import io
 
